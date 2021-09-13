@@ -27,18 +27,19 @@ public class FollowController {
     public List<Follow> getAllFollows() {
         return followRepository.findAll();
     }
+   
 //****************************************** See follow repository for custom methods
      // Get who follows the user
-//    @GetMapping("/myfollowers")
-//    public List<Follow> getMyFollowers(long user_id) {
-//        return followRepository.findAll();
-//    }
-//
-//    // Get who the user follows
-//    @GetMapping("/myfollows")
-//    public List<Follow> getIFollow(long user_id) {
-//        return followRepository.findAll();
-//    }
+    @GetMapping("/myfollowers")
+    public List<Follow> getMyFollowers(long user_id) {
+        return followRepository.findAll();
+    }
+
+    // Get who the user follows
+    @GetMapping("/myfollows")
+    public List<Follow> getIFollow(long user_id) {
+        return followRepository.findAll();
+    }
 //**************************************
 
     // Create a new Follow
