@@ -9,10 +9,10 @@ public interface FollowRepository extends JpaRepository<Follow, Long> {
 
 // getting those following the user
 //     @Query(value = "SELECT * FROM Follows WHERE following_id = ?1", nativeQuery = true)
-//     List<Follow> getMyFollowers(long user.id);
+//     List<Follow> getMyFollowers(long user_id);
 
     // getting those the user is following
 //     @Query(value = "SELECT * FROM Follows WHERE followed_id = ?1", nativeQuery = true)
-//    List<Follow> getIFollow(long user.id);
+//    List<Follow> getIFollow(long user_id);
 
 }
