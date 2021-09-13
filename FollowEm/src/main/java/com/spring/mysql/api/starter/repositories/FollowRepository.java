@@ -7,11 +7,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FollowRepository extends JpaRepository<Follow, Long> {
 
-    // getting
-//    @Query("select f from follows where f.followedId = ?")
-//    List<Follow> getMyFollowers(long user_id);
-//
-//    @Query("select f from follows where f.followingId = ?")
-//   List<Follow> getIFollow(long user_id);
+// getting those following the user
+    @Query(value = "SELECT * FROM Follows WHERE following_id = ?1", nativeQuery = true)
+    List<Follow> getMyFollowers(long user.id);
+
+    // getting those the user is following
+    @Query(value = "SELECT * FROM Follows WHERE followed_id = ?1", nativeQuery = true)
+   List<Follow> getIFollow(long user.id);
 
 }
