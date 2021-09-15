@@ -29,16 +29,16 @@ public class FollowController {
     }
    
 //****************************************** See follow repository for custom methods
-    // Get who follows the user
-    @GetMapping("/myfollowers")
-    public List<Follow> getMyFollowers(long user_id) {
-        return followRepository.getMyFollowers(user_id);
+    // Get id's of those who the user follows
+    @GetMapping("/follows/myfollows/{following_id}")
+    public List<Long> displayIdsOfThoseIFollow(@PathVariable(value = "following_id") long following_id) {
+        return followRepository.getIdsOfThoseIFollow(following_id);
     }
 
-    // Get who the user follows
-    @GetMapping("/myfollows")
-    public List<Follow> getIFollow(long user_id) {
-        return followRepository.getIFollow(user_id);
+    // Get id's of those who folow the user
+    @GetMapping("/follows/myfollowers/{followed_id}")
+    public List<Long> displayIdsOfThoseThatFollowMe(@PathVariable(value = "followed_id") long followed_id) {
+        return followRepository.getIdsOfThoseThatFollowMe(followed_id);
     }
 //**************************************
 
