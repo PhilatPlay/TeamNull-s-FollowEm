@@ -33,6 +33,12 @@ public class PostController {
     public Optional<Post> displayPostById(@PathVariable("id") long postId) {
         return postRepository.findById(postId);
     }
+    
+    // Get Posts By User
+    @GetMapping("/posts/userposts/{user_id}")
+    public List<Post> displayPostByUser(@PathVariable("user_id") long user_id) {
+        return postRepository.getPostByUserId(user_id);
+    }
 
     // Create a new Post
     @PostMapping("/posts/add")
