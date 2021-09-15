@@ -62,5 +62,10 @@ public class UserController {
 
         return ResponseEntity.ok().build();
     }
+    
+    @GetMapping("/users/UserData/{user_id}")
+    public List<Object> displayUserData(@PathVariable(value = "user_id") Long user_id) {
+        return userRepository.getUserData(user_id);
+    }
 
 }
