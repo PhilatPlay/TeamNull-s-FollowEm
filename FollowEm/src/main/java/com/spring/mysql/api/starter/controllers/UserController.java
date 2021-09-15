@@ -34,6 +34,11 @@ public class UserController {
         LOGGER.info("New user saved!");
         return userRepository.save(user);
     }
+    
+    @GetMapping("/users/{id}")
+    public Optional<User> displayPostById(@PathVariable("id") long userId) {
+        return postRepository.findById(userId);
+    }
 
     // update a User
     @PutMapping("/users/update/{id}")
