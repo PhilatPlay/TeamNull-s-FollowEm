@@ -27,6 +27,12 @@ public class PostController {
     public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
+    
+    // Get individual post
+    @GetMapping("/posts/{id}")
+    public Optional<Post> displayPostById(@PathVariable("id") long postId) {
+        return postRepository.findById(postId);
+    }
 
     // Create a new Post
     @PostMapping("/posts/add")
