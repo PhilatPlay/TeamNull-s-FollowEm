@@ -1,8 +1,7 @@
-<ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        Burt Burns
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        Henry Clove
-    </li>
-</ul>
+<div style="margin-left: 2%; margin-right: 2%; margin-bottom: 2%">
+    <ul class="list-group" style="overflow: auto">
+        <li class="list-group-item list-group-item-action justify-content-between align-items-center list-colors list-size" *ngFor="let follow of follows" (click)="viewProfile(follow.id)">
+            {{ follow.name }}
+        </li>
+    </ul>
+</div>
