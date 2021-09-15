@@ -35,9 +35,10 @@ public class UserController {
         return userRepository.save(user);
     }
     
+    //Get individual users
     @GetMapping("/users/{id}")
-    public Optional<User> displayPostById(@PathVariable("id") long userId) {
-        return postRepository.findById(userId);
+    public Optional<User> displayUserById(@PathVariable("id") long userId) {
+        return userRepository.findById(userId);
     }
 
     // update a User
