@@ -1,5 +1,5 @@
-<div style="margin-left: 2%; margin-right: 2%; margin-bottom: 2%">
-    <ul class="list-group" style="overflow: auto">
+<div class="sidebar-wrapper">
+    <ul class="list-group" style="overflow: auto;">
         <li class="list-group-item list-group-item-action justify-content-between align-items-center list-colors list-size" *ngFor="let follow of follows" (click)="viewProfile(follow.id)">
             {{ follow.name }}
         </li>

@@ -27,21 +27,22 @@ export class FollowListComponent implements OnInit {
     }
   ]
 
-  follow: User[] = []
   followsIds: number[] = [] //Array of numbers
-  current_user: number = 1
+  current_user: number = 3;
 
   //getFollows needs an ID
+ 
   ngOnInit(): void {
     /*
     this.userService.getFollows(this.current_user).subscribe(data => {
       this.followsIds = data;
     })
+    alert(this.followsIds);
 
     for (let index = 0; index < this.followsIds.length; index++) {
       const element = this.followsIds[index];
       this.userService.getUserById(element).subscribe(data => {
-        this.follow.push(data);
+        this.follows.push(data);
       })
     }
     */
@@ -51,5 +52,5 @@ export class FollowListComponent implements OnInit {
     alert(id);
     // this.router.navigate(['/profile', id])
   }
-
+  
 }
