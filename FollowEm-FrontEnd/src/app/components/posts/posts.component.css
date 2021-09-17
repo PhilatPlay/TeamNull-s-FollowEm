@@ -1,6 +1,4 @@
-.posts-wrapper {
-    padding: 3%;
-}
+
 
 .sidebar-wrapper {
     background-color: #32292F;
@@ -12,10 +10,7 @@
     border-radius: 3px;
 }
 
-.post-style{
-    background-color: #F0F7F4;
-    border: 3px solid #70abaf;
-}
+
 
 .post-style:hover{
     background-color: #70abaf;

@@ -30,7 +30,6 @@ export class PostsComponent implements OnInit {
       user_id: 1,
       title: "Amazing floor!",
       content: "I walked on this amazing floor yesterday. It was so firm!",
-      date: "09/16/2021",
       user: this.users[0]
     },
     {
@@ -38,7 +37,6 @@ export class PostsComponent implements OnInit {
       user_id: 2,
       title: "I am fully charged.",
       content: "Wake up, plug in phone, go to the bathroom - not necessarily in that order.",
-      date: "09/16/2021",
       user: this.users[1]
     }
   ]

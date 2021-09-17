@@ -1,0 +1,13 @@
+<div class="posts-wrapper">
+    <div class="card" style="background-color: #F0F7F4; border: 3px solid #70abaf;">
+        <form class="card-body" #postForm = "ngForm" (submit)="onSubmit(postForm.value)">
+            <label for="">Title</label>
+            <input type="text" name="title" #title ngModel class="form-control" />
+            <label for="">Content</label>
+            <textarea type="textarea" name="content" #content ngModel class="form-control"></textarea>
+            <input type="number" name="author_id" value="{{ user.id }}" #author_id ngModel hidden />
+            <br />
+            <input type="submit" value="Post" class="profile-button" />
+        </form>
+    </div>
+</div>

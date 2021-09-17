@@ -1,0 +1,12 @@
+<div class="posts-wrapper">
+    <div class="card" style="background-color: #F0F7F4; border: 3px solid #70abaf; width: 35%; margin: 0 auto;">
+        <form class="card-body" #loginForm = "ngForm" (submit)="onSubmit(loginForm.value)">
+            <label for="" class="text-center">Email</label>
+            <input type="text" name="email" #email ngModel class="form-control" />
+            <label for="" class="text-center">Password</label>
+            <input type="password" name="password" #password ngModel class="form-control" />
+            <br />
+            <input type="submit" value="Login" class="profile-button" />
+        </form>
+    </div>
+</div>
