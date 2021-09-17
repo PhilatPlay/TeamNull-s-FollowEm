@@ -1,0 +1,18 @@
+<div class="posts-wrapper">
+    <div class="card" style="background-color: #F0F7F4; border: 3px solid #70abaf; width: 35%; margin: 0 auto;">
+        <form class="card-body" #signupForm = "ngForm" (submit)="onSubmit(signupForm.value)">
+            <label for="" class="text-center">Email</label>
+            <input type="text" name="email" #email ngModel class="form-control" />
+            <label for="" class="text-center">Name</label>
+            <input type="text" name="name" #name ngModel class="form-control" />
+            <label for="" class="text-center">Expertise</label>
+            <input type="text" name="expertise" #expertise ngModel class="form-control" />
+            <label for="" class="text-center">Password</label>
+            <input type="password" name="password" #password ngModel class="form-control" />
+            <label for="" class="text-center">Confirm Password</label>
+            <input type="password" name="password_confirm" #password_confirm ngModel class="form-control" />
+            <br />
+            <input type="submit" value="Sign Up" class="profile-button" />
+        </form>
+    </div>
+</div>

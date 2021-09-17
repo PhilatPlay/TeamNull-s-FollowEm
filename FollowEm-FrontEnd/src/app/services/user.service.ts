@@ -9,22 +9,41 @@ import { User } from '../models/user.model';
 export class UserService {
   private BASEURL='http://localhost:8080/';
   private ENDPOINTS = {
-    MYFOLLOWS: 'myfollows', // - /myfollows/? returns list of user IDs that ? follows
-    USER: 'user'
+    GET_USER: 'users',
+    ADD_USER: 'users/add',
+    DELETE_USER: 'users/delete',
+    UPDATE_USER: 'users/update'
   }
 
   constructor(private http: HttpClient) { }
 
-  getFollows(id: any): Observable<number[]>{
-    return this.http.get<number[]>(
-      `${this.BASEURL + this.ENDPOINTS.MYFOLLOWS}/${id}`
+  getUsers(): Observable<User>{
+    return this.http.get<User>(
+      `${this.BASEURL + this.ENDPOINTS.GET_USER}`
+    )
+  }
+
+  getUserById(id: any): Observable<User> {
+    return this.http.get<User>(
+      `${this.BASEURL + this.ENDPOINTS.GET_USER}/${id}`
     );
   }
 
-  //TODO possibly fix this
-  getUserById(id: any): Observable<User> {
-    return this.http.get<User>(
-      `${this.BASEURL + this.ENDPOINTS.USER}/${id}`
-    );
+  createUser(data: User): Observable<User>{
+    return this.http.post<User>(
+      `${this.BASEURL + this.ENDPOINTS.ADD_USER}`, data
+    )
+  }
+
+  deleteUser(id: any): Observable<User> {
+    return this.http.delete<User>(
+      `${this.BASEURL + this.ENDPOINTS.DELETE_USER}/${id}`
+    )
+  }
+
+  updateUser(id: any, data: User): Observable<User> {
+    return this.http.put<User>(
+      `${this.BASEURL + this.ENDPOINTS.UPDATE_USER}/${id}`, data
+    )
   }
 }
