@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
+import { FollowService } from 'src/app/services/follow.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class FollowListComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private userService: UserService, private followService: FollowService, private router: Router) { }
 
   follows: User[] = [
     {

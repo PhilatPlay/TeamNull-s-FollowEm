@@ -1,6 +1,6 @@
 import { User } from "./user.model";
 
-//TODO fix
+//Stuck a user object in here to grab names and expertise for all posts
 export interface Post {
     id: number;
     user_id: number;
