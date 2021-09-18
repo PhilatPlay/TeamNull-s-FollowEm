@@ -41,6 +41,12 @@ public class UserController {
     public Optional<User> displayUserById(@PathVariable("id") long userId) {
         return userRepository.findById(userId);
     }
+    
+    //Get individual users by email
+    @GetMapping("/users/UserAuth/{email}")
+    public User displayUserByEmail(@PathVariable("email") String email) {
+        return userRepository.findByEmail(email);
+    }
 
     // update a User
     @PutMapping("/users/update/{id}")
