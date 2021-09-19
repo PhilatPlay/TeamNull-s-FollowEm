@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
@@ -70,9 +71,9 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
     
-    @GetMapping("/users/UserData/{user_id}")
-    public List<Object> displayUserData(@PathVariable(value = "user_id") Long user_id) {
-        return userRepository.getUserData(user_id);
-    }
+//    @GetMapping("/users/UserData/{user_id}")
+//    public List<?> displayUserData(@PathVariable(value = "user_id") Long user_id) {
+//        return userRepository.getUserData(user_id);
+//    }
 
 }
