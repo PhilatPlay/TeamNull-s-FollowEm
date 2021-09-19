@@ -5,5 +5,18 @@
       <h5 class="card-title text-center">{{ post.title }}</h5>
       <p class="">{{ post.content }}</p>
       </div>
+      <form #followForm (submit)="submitFollow()">
+        <input 
+          type="hidden" 
+          name="follow_id"
+          #followed_id="ngModel"
+          [(ngModel)]="followModel.followed_id" />
+          <input 
+          type="hidden" 
+          name="following_id"
+          #following_id="ngModel"
+          [(ngModel)]="followModel.followed_id" />
+          <input type="submit" value="Submit" />
+      </form>
   </div>
 </div>

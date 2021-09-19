@@ -26,23 +26,31 @@ export class UserService {
   getUserById(id: any) {
     return 
   }
-  userLogin(email: string, password: string): Observable<User> {
-    return this.http.get<User>(`http://localhost:8080/users/UserAuth/${email}&${password}`);
-  }
-// userLogin(data: any) {
-//   fetch(`http://localhost:8080/users/UserAuth/${data.email}`)
-//     .then(res => res.json())
-//     .then(x => {
-//       console.log(`GOT RESPONSE ${JSON.stringify(x)}`)
-//       if(x.id && x.id > 0) {
-//         localStorage.setItem('id', x.id);
-//         this.router.navigate(['profile'])
-//       }
-//     })
-//     .catch(err => {
-//       console.log(err)
-//     })
-// }
+  // userLogin(email: string, password: string): Observable<User> {
+  //   return this.http.get<User>(`http://localhost:8080/users/UserAuth/${email}&${password}`);
+  // }
+userLogin(data: any) {
+  
+  fetch(`http://localhost:8080/users/UserAuth?${data.email}&${data.password}`)
+    .then(res => res.json())
+    .then(x => {
+      console.log(`GOT RESPONSE ${JSON.stringify(x)}`)     
+      if(x.id && x.id > 0) {       
+        localStorage.getItem('error') && localStorage.removeItem('error'); 
+        localStorage.setItem('id', x.id);
+        localStorage.setItem('name', x.name);
+        this.router.navigate(['profile'])
+        return;
+      }else{
+      localStorage.setItem('error', 'Invalid email/password');
+      return this.router.navigate(['login'])
+      }
+    })
+    .catch(err => {
+     return localStorage.setItem('error', 'Error')
+      
+    })
+}
   createUser(data: any){
     fetch('http://localhost:8080/users/add', {
       method: 'post',
