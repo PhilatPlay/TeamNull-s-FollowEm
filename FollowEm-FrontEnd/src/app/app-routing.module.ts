@@ -9,9 +9,9 @@ import { PostFormComponent } from './components/post-form/post-form.component';
 const routes: Routes = [
   {path: "signup", component: SignupComponent},
   {path: "login", component: LoginComponent},
-  {path: "profile", component: ProfileComponent},
- { path: "posts", component: PostsComponent},
- {path: "post-form", component: PostFormComponent}
+  {path: "profile/:user_id", component: ProfileComponent},
+  {path: "posts", component: PostsComponent},
+  {path: "post-form", component: PostFormComponent},
 ];
 
 @NgModule({

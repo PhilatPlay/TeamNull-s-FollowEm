@@ -51,14 +51,14 @@ export class FollowService {
     )
   }
 
-  getMyFollows(id: any): Observable<Follow[]>{
-    return this.http.get<Follow[]>(
+  getMyFollows(id: any): Observable<number[]>{
+    return this.http.get<number[]>(
       `${this.BASEURL + this.ENDPOINTS.GET_MY_FOLLOWS}/${id}`
     )
   }
 
-  getMyFollowers(id: any): Observable<Follow[]>{
-    return this.http.get<Follow[]>(
+  getMyFollowers(id: any): Observable<number[]>{
+    return this.http.get<number[]>(
       `${this.BASEURL + this.ENDPOINTS.GET_MY_FOLLOWERS}/${id}`
     )
   }

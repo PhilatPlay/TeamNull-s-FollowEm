@@ -13,7 +13,8 @@ export class UserService {
     GET_USER: 'users',
     ADD_USER: 'users/add',
     DELETE_USER: 'users/delete',
-    UPDATE_USER: 'users/update'
+    UPDATE_USER: 'users/update',
+    USER_AUTH: 'user/UserAuth'
   }
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -23,11 +24,11 @@ export class UserService {
     
   }
 
-  getUserById(id: any) {
-    return 
+  getUserById(id: any): Observable<User> {
+    return this.http.get<User>(`${this.BASEURL + this.ENDPOINTS.GET_USER}/${id}`)
   }
   userLogin(email: string, password: string): Observable<User> {
-    return this.http.get<User>(`http://localhost:8080/users/UserAuth/${email}&${password}`);
+    return this.http.get<User>(`${this.BASEURL + this.ENDPOINTS.USER_AUTH}/${email}&${password}`);
   }
 // userLogin(data: any) {
 //   fetch(`http://localhost:8080/users/UserAuth/${data.email}`)
