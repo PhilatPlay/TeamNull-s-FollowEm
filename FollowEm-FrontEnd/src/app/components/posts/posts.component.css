@@ -1,0 +1,12 @@
+.post-style{
+    background-color: #F0F7F4;
+    border: 3px solid #70abaf;
+}
+
+.posts-wrapper {
+    padding: 3%;
+}
+
+.post-style:hover{
+    background-color: #70abaf;
+}

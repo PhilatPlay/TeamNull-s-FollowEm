@@ -15,12 +15,12 @@ export class FollowListComponent implements OnInit {
   constructor(private userService: UserService, private followService: FollowService, private router: Router) { }
 
   followedUsers: User[] = [] //Array of numbers
-  current_user_id: number = 1;
+  current_user_id: any = localStorage.getItem("id");
   follows: number[] = []
   
  
   ngOnInit(): void {
-    this.followService.getMyFollows(this.current_user_id).subscribe(data => {
+    this.followService.getMyFollows(parseInt(this.current_user_id)).subscribe(data => {
       this.follows = data;
       for (let index = 0; index < this.follows.length; index++) {
         this.userService.getUserById(this.follows[index]).subscribe(data => {this.followedUsers.push(data)})

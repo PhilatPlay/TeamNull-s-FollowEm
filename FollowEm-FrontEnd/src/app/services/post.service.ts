@@ -20,8 +20,8 @@ export class PostService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getPosts(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/posts');
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>('http://localhost:8080/posts');
   }
 
   getPostsByAuthorId(id: any): Observable<Post[]> {

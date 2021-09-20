@@ -11,14 +11,18 @@ import { Post } from "src/app/models/post.model";
 })
 export class PostFormComponent implements OnInit {
 
- User = {
-   id: parseInt('id') || 0,
+  
+
+  user_id: any = localStorage.getItem("id")
+
+ public User = {
+   id: parseInt(this.user_id),
    name: localStorage.getItem('name') || '',
    email: '',
    expertise: '',
    password: ''
  }
- postFormModel = new PostForm(0, 0, "", "",this.User); 
+ postFormModel = new PostForm(0, parseInt(this.user_id), "", "",this.User); 
   constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit(): void {
