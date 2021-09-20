@@ -15,15 +15,26 @@ export class PostService {
     POSTS_BY_USER: "posts/userposts",
     DELETE_POST: "posts/delete",
     UPDATE_POST: "posts/update",
-    NEW_POST: "posts/add"
+    NEW_POST: "posts/add" 
   }
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getPosts(): Observable<Post[]> {
+  getPosts(): Observable<Post[]> { 
     return this.http.get<Post[]>('http://localhost:8080/posts');
   }
 
+  getAllPosts():any {
+    fetch('http://localhost:8080/posts') 
+    .then(x => x.json())
+    .then(y => {
+      console.log(`THIS IS Y: ${y}`)
+      return y
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
   getPostsByAuthorId(id: any): Observable<Post[]> {
     return this.http.get<Post[]>(
       `${this.BASEURL + this.ENDPOINTS.POSTS_BY_USER}/${id}`

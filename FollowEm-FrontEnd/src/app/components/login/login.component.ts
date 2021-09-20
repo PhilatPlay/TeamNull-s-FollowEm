@@ -15,10 +15,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit() {   
+  onSubmit(): any {   
       let x = this.userService.userLogin(this.loginModel);
       console.log(x);
     }
   }
   
-

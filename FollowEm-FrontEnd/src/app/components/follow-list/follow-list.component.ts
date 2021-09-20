@@ -20,16 +20,10 @@ export class FollowListComponent implements OnInit {
   
  
   ngOnInit(): void {
-    this.followService.getMyFollows(parseInt(this.current_user_id)).subscribe(data => {
-      this.follows = data;
-      for (let index = 0; index < this.follows.length; index++) {
-        this.userService.getUserById(this.follows[index]).subscribe(data => {this.followedUsers.push(data)})
-      }
-    })
   }
 
   viewProfile(id: any){
-    this.router.navigate(['/profile', id])
+    
   }
   
 }

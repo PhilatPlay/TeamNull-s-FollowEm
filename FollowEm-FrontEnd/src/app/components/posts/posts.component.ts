@@ -1,45 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from 'src/app/models/post.model';
-import { Follow } from 'src/app/models/follow.model';
-import { FollowService } from 'src/app/services/follow.service';
 import { PostService } from 'src/app/services/post.service';
-import { UserService } from 'src/app/services/user.service';
+import { FollowService } from 'src/app/services/follow.service';
+import { Follow } from 'src/app/models/follow.model';
 
 @Component({
   selector: 'app-posts',
-  templateUrl: './posts.component.html',
+  templateUrl: './posts.component.html', 
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-
-  public posts: Post[] = []
-  follows: Follow[] = []
-  current_user_id: number = 2 //localStorage.getItem("id")
-  no_blocks: boolean = false
-
-  constructor(private postService: PostService, private userService: UserService, private followService: FollowService) { 
-    
+  public x: any;  
+  public error = '';
+  public id = localStorage.getItem('id') || 0;
+  followModel = new Follow(0, 0, 0, '');
+  constructor(private postService: PostService, private followService: FollowService) { 
+    this.postService.getPosts().subscribe((data) => {console.log(data); this.x = data});
   }
 
-  ngOnInit(): void {
-    this.postService.getPosts().subscribe(data => {
-      console.log(data); 
-      this.posts = data;
-
-      /* this.followService.getFollows().subscribe(followData => {
-        this.follows = followData
-        this.follows = this.follows.filter(x => { x.status == 'decline' })
-        console.log(this.follows)
-      }) */
-
-      for (let index = 0; index < this.posts.length; index++) {
-        this.userService.getUserById(this.posts[index].author_id).subscribe(postData => {
-          this.posts[index].user = postData
-        })
-      }
-    });
+  ngOnInit()  {
   }
-  submitFollow() {
-    
+  submitFollow(d: any) {
+    console.log(`DATA: ${d}`);
+    console.log(localStorage.getItem('id'));
+    const o = {
+      followed_id: d,
+      following_id: localStorage.getItem('id')
+    }
+    this.followService.createFollow(o);
   }
 }
