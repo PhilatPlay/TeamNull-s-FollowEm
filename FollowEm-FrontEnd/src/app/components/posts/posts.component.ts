@@ -4,6 +4,7 @@ import { Follow } from 'src/app/models/follow.model';
 import { FollowService } from 'src/app/services/follow.service';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
+import { PostForm } from 'src/app/models/postform.model';
 
 @Component({
   selector: 'app-posts',
@@ -39,6 +40,7 @@ export class PostsComponent implements OnInit {
       }
     });
   }
+  
   submitFollow() {
     
   }

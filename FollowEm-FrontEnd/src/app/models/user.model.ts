@@ -6,5 +6,4 @@ export class User {
        public password: string,
        public expertise: string
     ) {}
-    }
-    
+}

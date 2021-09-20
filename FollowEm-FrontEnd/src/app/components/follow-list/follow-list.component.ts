@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< .merge_file_a15268
 import { Follow } from 'src/app/models/follow.model';
 import { User } from 'src/app/models/user.model';
 import { FollowService } from 'src/app/services/follow.service';
+=======
+import { User } from 'src/app/models/user.model';
+>>>>>>> .merge_file_a00248
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
