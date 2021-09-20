@@ -1,12 +1,11 @@
 
-<div class="container-fluid">
+<div class="container-fluid sidebar-wrapper">
     <h5 class="text-danger text-center">{{ error && error}}</h5>
-<div *ngFor="let y of z" class="card m-4 p-2">
-    
+<div *ngFor="let y of z" class="card m-4 p-2 user-list-style">   
     <p>Name: {{ y.name }}</p>
     <p>Expertise: {{ y.expertise }}</p>
     <form (submit)="submitFollow()">
-        <input type="submit" value="Follow" />
+        <input type="submit" value="Follow" class="profile-button"/>
     </form>
 </div>
 </div>

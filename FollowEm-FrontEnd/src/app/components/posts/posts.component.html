@@ -2,8 +2,8 @@
   <div class="card post-style" *ngFor="let post of x" style="padding: 2%; margin: 2%">
     <div class="card-body">
       <div class="row justify-content-start">
-        <div class="col-md-auto"><h5 class="card-subtitle mb-2">{{ post.author_name }}</h5></div>
-        <div class="col"><h5 class="card-subtitle text-muted">{{ post.expertise }}</h5></div>
+        <div class="col-md-auto"><h5 class="card-subtitle mb-2">AUTHOR NAME</h5></div>
+        <div class="col"><h5 class="card-subtitle text-muted">EXPERTISE</h5></div>
       </div>
 
     </div>
@@ -12,7 +12,7 @@
 
       <form #followForm="ngForm" (submit)="submitFollow(post.author_id)">
       
-          <input type="submit" value="Follow" />
+          <input type="submit" value="Follow" class="follow-button"/>
       </form>
 
   </div>
