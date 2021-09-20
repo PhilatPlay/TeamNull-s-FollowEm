@@ -11,6 +11,6 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
   
   // getting posts by user
-    @Query(value = "SELECT * FROM posts WHERE user_id = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM posts WHERE author_id = ?", nativeQuery = true)
     public List<Post> getPostByUserId(Long user_id);
 }

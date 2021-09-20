@@ -35,7 +35,20 @@ export class PostService {
       console.log(err)
     })
   }
-  getPostsByAuthorId(id: any): Observable<Post[]> {
+  getPostsByAuthorId(id: any): any {
+    fetch(`http://localhost:8080/posts/userposts/${id}`)
+    .then(res => res.json())
+    .then(x => {
+      // console.log(`X NEW: ${JSON.stringify(x)}`)
+      // return x;
+      localStorage.setItem('posts', JSON.stringify(x))
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  getPostsByAuthor2(id: any): Observable<Post[]> {
     return this.http.get<Post[]>(
       `${this.BASEURL + this.ENDPOINTS.POSTS_BY_USER}/${id}`
     )
