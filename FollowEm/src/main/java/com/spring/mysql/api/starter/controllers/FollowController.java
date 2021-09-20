@@ -41,6 +41,12 @@ public class FollowController {
     public List<Long> displayIdsOfThoseThatFollowMe(@PathVariable(value = "followed_id") long followed_id) {
         return followRepository.getIdsOfThoseThatFollowMe(followed_id);
     }
+    
+    // Get id's of those a user's blocked
+    @GetMapping("/follows/blocked/{followed_id}")
+    public List<Long> displayIdsOfThoseIBlocked(@PathVariable(value = "followed_id") long followed_id) {
+        return followRepository.getIdsOfThoseIBlocked(followed_id);
+    }
 //**************************************
 
     // Create a new Follow
