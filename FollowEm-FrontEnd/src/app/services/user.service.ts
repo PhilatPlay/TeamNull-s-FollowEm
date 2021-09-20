@@ -23,8 +23,9 @@ export class UserService {
  }
 
  getUserById(id: any) {
-   return 
+   return this.http.get<User>(`${this.BASEURL + this.ENDPOINTS.GET_USER}/${id}`)
  }
+
 userLogin(data: any): any { 
  fetch(`http://localhost:8080/users/UserAuth/${data.email}`)
    .then(res => res.json())
