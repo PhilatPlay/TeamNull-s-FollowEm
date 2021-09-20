@@ -10,21 +10,20 @@ import { UserService } from 'src/app/services/user.service';
 export class UsersListComponent implements OnInit {
   public z: any;
   public error: any;
-  constructor(private userService: UserService, private folowService: FollowService) {
+  constructor(private userService: UserService, private followService: FollowService) {
     this.userService.getUsers().subscribe((data) => {console.log(data); this.z = data});
    }
 
   ngOnInit(): void {   
   }
 
-  submitFollow() {
-    if(localStorage.getItem('id')) {
-
-    }else{
-      this.error = "You must be logged in to follow a user";
-      setTimeout(() => {
-        this.error = ''
-      },4000);
+  submitFollow(d: any) {
+    console.log(`DATA: ${d}`);
+    console.log(localStorage.getItem('id'));
+    const o = {
+      followed_id: d,
+      following_id: localStorage.getItem('id')
     }
+    this.followService.createFollow(o);
   }
 }

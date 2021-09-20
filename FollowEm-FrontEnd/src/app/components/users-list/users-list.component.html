@@ -4,7 +4,7 @@
 <div *ngFor="let y of z" class="card m-4 p-2 user-list-style">   
     <p>Name: {{ y.name }}</p>
     <p>Expertise: {{ y.expertise }}</p>
-    <form (submit)="submitFollow()">
+    <form (submit)="submitFollow(y.id)">
         <input type="submit" value="Follow" class="profile-button"/>
     </form>
 </div>
