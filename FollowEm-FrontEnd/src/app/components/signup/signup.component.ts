@@ -9,7 +9,7 @@ import { User } from "../../models/user.model";
 })
 export class SignupComponent implements OnInit {
   userModel = new User(0,'','','','');
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {  }
 
   ngOnInit(): void {
   }

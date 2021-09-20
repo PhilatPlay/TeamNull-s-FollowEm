@@ -13,6 +13,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { PostService } from './services/post.service';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PostService } from './services/post.service';
     PostsComponent,
     ProfileComponent,
     SignupComponent,
+    UsersListComponent,
   ],
   imports: [
     BrowserModule,

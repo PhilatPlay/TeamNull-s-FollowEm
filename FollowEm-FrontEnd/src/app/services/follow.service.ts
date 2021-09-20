@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Follow } from '../models/follow.model';
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,22 @@ export class FollowService {
     )
   }
 
-  createFollow(data: Follow): Observable<Follow>{
-    return this.http.post<Follow>(
-      `${this.BASEURL + this.ENDPOINTS.ADD_FOLLOW}`, data
-    )
+  createFollow(data: any){
+    fetch('http://localhost:8080/follows/add', {
+     method: 'post',
+     headers: {
+       "Content-type": "application/json"
+     },
+     body: JSON.stringify(data)
+   })
+   .then(res => res.json())
+   .then(x => {
+     console.log(`GOT RESPONSE ${JSON.stringify(x)}`)
+    
+   })
+   .catch(err => {
+     console.log(err)
+   })
   }
 
   deleteFollow(id: any): Observable<Follow>{
@@ -51,10 +64,16 @@ export class FollowService {
     )
   }
 
-  getMyFollows(id: any): Observable<number[]>{
-    return this.http.get<number[]>(
-      `${this.BASEURL + this.ENDPOINTS.GET_MY_FOLLOWS}/${id}`
-    )
+  getMyFollows(id: any): any{
+    fetch(`http://localhost:8080/follows/myfollows/${id}`)
+    .then(res => res.json())
+    .then(ret => {
+      console.log(`RET: ${JSON.stringify(ret)}`);
+      return ret;
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   getMyFollowers(id: any): Observable<number[]>{
