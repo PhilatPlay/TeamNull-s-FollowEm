@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+
   public posts: Post[] = []
   follows: Follow[] = []
   current_user_id: number = 2 //localStorage.getItem("id")
@@ -37,5 +38,8 @@ export class PostsComponent implements OnInit {
         })
       }
     });
+  }
+  submitFollow() {
+    
   }
 }

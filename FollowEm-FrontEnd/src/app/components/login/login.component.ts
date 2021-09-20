@@ -9,13 +9,15 @@ import { User } from "../../models/user.model";
 })
 export class LoginComponent implements OnInit {
   loginModel = new User(0, '', '','', '');
+  error = localStorage.getItem('error') || '';
   
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
-  onSubmit(): void {   
-      this.userService.userLogin(this.loginModel.email, this.loginModel.password).subscribe(x => console.log(x))
+  onSubmit() {   
+      let x = this.userService.userLogin(this.loginModel);
+      console.log(x);
     }
   }
   

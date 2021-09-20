@@ -5,8 +5,24 @@
         <div class="col-md-auto"><h5 class="card-subtitle mb-2">{{ post.user.name }}</h5></div>
         <div class="col"><h5 class="card-subtitle text-muted">{{ post.user.expertise }}</h5></div>
       </div>
+
     </div>
     <h4 class="card-title">{{ post.title }}</h4>
     <p class="card-text">{{ post.content }}</p>
+
+      <form #followForm (submit)="submitFollow()">
+        <input 
+          type="hidden" 
+          name="follow_id"
+          #followed_id="ngModel"
+          [(ngModel)]="followModel.followed_id" />
+          <input 
+          type="hidden" 
+          name="following_id"
+          #following_id="ngModel"
+          [(ngModel)]="followModel.followed_id" />
+          <input type="submit" value="Submit" />
+      </form>
+
   </div>
 </div>

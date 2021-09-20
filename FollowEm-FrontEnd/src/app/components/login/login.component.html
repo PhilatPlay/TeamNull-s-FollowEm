@@ -6,6 +6,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%">
+    <div class="text-center text-danger">{{error && error}}</div>
 <form class="card-body" #loginForm="ngForm" (submit)="onSubmit()">
 <label for="" class="text-center">Email</label>
 <input 

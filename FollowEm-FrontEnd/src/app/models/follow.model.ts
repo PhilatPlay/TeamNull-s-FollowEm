@@ -1,6 +1,11 @@
-export interface Follow {
-    id: number;
-    followed_id: number;
-    following_id: number;
-    status: string;
+export class Follow {
+    constructor(
+        public id: number,
+        public followed_id: number,
+        public  following_id: number,
+        public status: string
+    ) {
+
+    }
+ 
 }
