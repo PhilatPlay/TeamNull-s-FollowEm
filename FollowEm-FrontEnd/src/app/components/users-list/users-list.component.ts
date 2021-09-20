@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FollowService } from 'src/app/services/follow.service';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-users-list',
@@ -10,21 +11,16 @@ import { UserService } from 'src/app/services/user.service';
 export class UsersListComponent implements OnInit {
   public z: any;
   public error: any;
-  constructor(private userService: UserService, private folowService: FollowService) {
+  constructor(private userService: UserService, private folowService: FollowService, private router: Router) {
     this.userService.getUsers().subscribe((data) => {console.log(data); this.z = data});
    }
 
   ngOnInit(): void {   
   }
 
-  submitFollow() {
-    if(localStorage.getItem('id')) {
-
-    }else{
-      this.error = "You must be logged in to follow a user";
-      setTimeout(() => {
-        this.error = ''
-      },4000);
-    }
+  submitFollow(id:any) {
+    console.log(id);
+    localStorage.setItem("sid", id)
+    return this.router.navigate(['users-posts'])
   }
 }

@@ -5,8 +5,8 @@
     
     <p>Name: {{ y.name }}</p>
     <p>Expertise: {{ y.expertise }}</p>
-    <form (submit)="submitFollow()">
-        <input type="submit" value="Follow" />
+    <form (submit)="submitFollow(y.id)">
+        <input type="submit" value="View Posts" />
     </form>
 </div>
 </div>

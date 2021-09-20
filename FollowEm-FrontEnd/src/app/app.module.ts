@@ -14,6 +14,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { PostService } from './services/post.service';
 import { UsersListComponent } from './components/users-list/users-list.component';
+import { SinglePostComponent } from './components/single-post/single-post.component';
+import { UsersPostsComponent } from './components/users-posts/users-posts.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { UsersListComponent } from './components/users-list/users-list.component
     ProfileComponent,
     SignupComponent,
     UsersListComponent,
+    SinglePostComponent,
+    UsersPostsComponent
   ],
   imports: [
     BrowserModule,
