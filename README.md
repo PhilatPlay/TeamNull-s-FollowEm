@@ -12,11 +12,11 @@ MySql
 
 Maven Depedencies:
 
-Spring Web Services
-Spring Data JPA
-Spring Developer Tools
-MySQL Driver
-Lombok
+Spring Web Services,
+Spring Data JPA,
+Spring Developer Tools,
+MySQL Driver,
+Lombok,
 
 Usage: 
 
