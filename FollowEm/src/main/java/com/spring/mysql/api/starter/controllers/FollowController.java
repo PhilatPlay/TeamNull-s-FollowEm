@@ -51,7 +51,7 @@ public class FollowController {
 
     // Create a new Follow
     @PostMapping("/follows/add")
-    public Follow createFollow(@Valid @RequestBody Follow follow) {
+    public Follow createFollow(@RequestBody Follow follow) {
         LOGGER.info("New follow saved!");
         return followRepository.save(follow);
     }
@@ -59,7 +59,7 @@ public class FollowController {
     // APPROVE a Follow
     @PutMapping("/follows/approve/{id}")
     public Follow approveFollow(@PathVariable(value = "id") long follow_id,
-                           @Valid @RequestBody Follow followDetails) throws FollowNotFoundException {
+                           @RequestBody Follow followDetails) throws FollowNotFoundException {
         this.followDetails = followDetails;
         Follow follow = followRepository.findById(follow_id)
                 .orElseThrow(() -> new FollowNotFoundException(follow_id));
@@ -72,7 +72,7 @@ public class FollowController {
     // DECLINE a Follow
     @PutMapping("/follows/decline/{id}")
     public Follow declineFollow(@PathVariable(value = "id") long follow_id,
-                                @Valid @RequestBody Follow followDetails) throws FollowNotFoundException {
+                                @RequestBody Follow followDetails) throws FollowNotFoundException {
         this.followDetails = followDetails;
         Follow follow = followRepository.findById(follow_id)
                 .orElseThrow(() -> new FollowNotFoundException(follow_id));
