@@ -51,7 +51,7 @@ public class PostController {
     // update a Post
     @PutMapping("/posts/update/{id}")
     public Post updatePost(@PathVariable(value = "id") long postId,
-                           @Valid @RequestBody Post postDetails) throws PostNotFoundException {
+                           @RequestBody Post postDetails) throws PostNotFoundException {
         this.postDetails = postDetails;
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new PostNotFoundException(postId));
